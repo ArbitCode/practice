@@ -1,4 +1,7 @@
+vscode/
+.vscode
 .vscode/
+.*
 *.o
 .vscode/targets.log
 makefile/output
