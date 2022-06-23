@@ -6,8 +6,9 @@ class Node{
     int data;
     Node *left;
     Node *right;
+    Node();
     Node(int key);
-
+    Node(int key, Node *left, Node *right);
 };
 
 #endif

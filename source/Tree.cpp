@@ -133,6 +133,56 @@ int Tree::getMaxWidth(Node *root){
 }
 
 void Tree::spiralTree(Node *root){
+    if(root == nullptr) return;
+
+    std::stack<Node *> stackEven;
+    std::stack<Node *> stackOdd;
+
+    stackEven.push(root);
+
+    bool evenLevel = true;
+
+    while((evenLevel && !stackEven.empty()) || (!stackOdd.empty())){
+        if(evenLevel){
+            while(!stackEven.empty()){
+                Node *curr = stackEven.top();
+                stackEven.pop();
+                std::cout << curr -> data << " ";
+                if(curr -> right != nullptr) stackOdd.push(curr->right);
+                if(curr->left != nullptr) stackOdd.push(curr -> left);
+
+            }
+
+        }
+        else{
+            while(!stackOdd.empty()){
+            Node *curr = stackOdd.top();
+            stackOdd.pop();
+            std::cout << curr -> data << " ";
+            if(curr->left != nullptr) stackEven.push(curr -> left);
+            if(curr -> right != nullptr) stackEven.push(curr->right);
+            }
+        }
+        evenLevel = !evenLevel;
+        std::cout <<"\n";
+    }
 
 }
 
+int Tree::getDiameterTree(Node *root){
+    if(root == nullptr) return 0;
+
+    int leftSubtreeDiameter = getDiameterTree(root -> left);
+    int rightSubtreeDiameter = getDiameterTree(root -> right);
+    int diameter = getHight(root -> left) + getHight(root -> right);
+    return std::max(diameter, std::max(leftSubtreeDiameter, rightSubtreeDiameter));
+}
+
+int Tree::getDiameterTree(Node *root, int &diameter){
+    if(root == nullptr) return 0;
+
+    int lh = getDiameterTree(root->left, diameter);
+    int rh = getDiameterTree(root -> right, diameter);
+    diameter = std::max(diameter, lh+rh);
+    return std::max(lh, rh) + 1;
+}

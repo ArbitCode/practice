@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 #include "../header/Node.h"
 #include "../header/Tree.h"
+
 int main(){
     Tree tree;
     Node *root = tree.buildTree();
@@ -23,6 +24,12 @@ int main(){
     std::cout<< "Max width: " << tree.getMaxWidth(root) << "\n";
     std::cout<< "Spiral Tree: \n";
     tree.spiralTree(root);
+    std::cout<< "Diameter of Tree: " << tree.getDiameterTree(root) << "\n";
+    int diameter = 0;
+    tree.getDiameterTree(root, diameter);
+    std::cout<< "Diameter of Tree: " << diameter << "\n";
+    
+
     
     free(root);
     return 0;
