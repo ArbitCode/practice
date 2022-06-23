@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/raja/Desktop/pratice'
+make: Leaving directory `/Users/raja/Desktop/pratice'
+ 
+make: *** makefile: Is a directory.  Stop.
+
