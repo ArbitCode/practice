@@ -1,11 +1,11 @@
 output: main.o Tree.o Node.o
-	g++ main.o Tree.o Node.o -o output
+	g++ ../binary/main.o ../binary/Tree.o ../binary/Node.o -o output
 main.o: ../main/main.cpp
-	g++ -c ../main/main.cpp
-Tree.o: ../source/Tree.cpp ../header/Tree.h
-	g++ -c ../source/Tree.cpp
-Node.o: ../source/Node.cpp ../header/Node.h
-	g++ -c ../source/Node.cpp
+	g++ -c ../main/main.cpp -o ../binary/main.o
+Tree.o: ../source/Tree.cpp
+	g++ -c ../source/Tree.cpp -o ../binary/Tree.o
+Node.o: ../source/Node.cpp
+	g++ -c ../source/Node.cpp -o ../binary/Node.o
 
 clean:
-	rm *.o output
+	rm ../binary/*.o output
