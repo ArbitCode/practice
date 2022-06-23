@@ -16,7 +16,6 @@ int main(){
     std::cout << "Tree Height: "<<tree.getHeight(root) << "\n";
     std::cout << "Tree Left View:\n";
     tree.printLeftView(root);
-    
-    //free(root);
+    free(root);
     return 0;
 }
