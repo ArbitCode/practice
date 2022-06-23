@@ -67,5 +67,26 @@ int Tree::getHeight(Node *root){
 }
 
 void Tree::printLeftView(Node *root){
+    if(root == nullptr) return;
+
+    std::queue<Node *>q;
+    std::vector<int> leftView;
     
+    q.push(root);
+
+    while(!q.empty()){
+        int count = q.size();
+        for(int i = 0; i < count; i++){
+            Node *curr = q.front();
+            q.pop();
+            
+            if( i == 0 ) leftView.push_back(curr->data);
+
+            if(curr->left !=nullptr) q.push(curr->left);
+            if(curr->right!= nullptr) q.push(curr->right);
+        }
+    }
+    for(auto x: leftView) std::cout <<x <<" ";
+    std::cout <<"\n";
 }
+

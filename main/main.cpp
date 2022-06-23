@@ -14,6 +14,8 @@ int main(){
     tree.levelOrder(root);
     std::cout << "Tree size: "<<tree.getSize(root) << "\n";
     std::cout << "Tree Height: "<<tree.getHeight(root) << "\n";
+    std::cout << "Tree Left View:\n";
+    tree.printLeftView(root);
     
     //free(root);
     return 0;
