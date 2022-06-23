@@ -110,4 +110,29 @@ bool Tree::isBalancedTree(Node *root){
     return (abs(lh - rh) <= 1 && isBalancedTree(root -> left) && isBalancedTree(root -> right));
 }
 
+int Tree::getMaxWidth(Node *root){
+    if( root == nullptr) return 0;
+
+    std::queue<Node *> q;
+    int res = 0;
+    
+    q.push(root);
+
+    while(!q.empty()){
+        int count = q.size();
+        res = std::max(res, count);
+        for(int i = 0; i < count; i++){
+            Node *curr = q.front();
+            q.pop();
+            if(curr -> left != nullptr) q.push(curr->left);
+            if(curr -> right != nullptr) q.push(curr->right);
+        }
+    }
+
+    return res;
+}
+
+void Tree::spiralTree(Node *root){
+
+}
 

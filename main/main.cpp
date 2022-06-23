@@ -20,6 +20,9 @@ int main(){
     tree.isChildSumEqualsParent(root) ? std::cout <<"True\n":std::cout<<"False\n";
     std::cout<< "Is tree balanced: ";
     tree.isBalancedTree(root) ? std::cout <<"True\n":std::cout<<"False\n";
+    std::cout<< "Max width: " << tree.getMaxWidth(root) << "\n";
+    std::cout<< "Spiral Tree: \n";
+    tree.spiralTree(root);
     
     free(root);
     return 0;
