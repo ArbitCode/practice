@@ -15,6 +15,25 @@ Node* Tree::buildTree(){
     return root;
 }
 
+Node *Tree::buildTree(const std::vector<int> &order, orderType type){
+    switch (type)
+    {
+    case in:
+
+        break;
+    case pre:
+
+        break;
+    case post:
+
+        break;
+    default:
+        std::cout <<"Please specifiy valid order type in, pre and post for inorder, preorder and postorder respectively\n";
+        break;
+    }
+    return nullptr;
+}
+
 void Tree::inOrder(Node *root){
     if(root == nullptr) return;
     inOrder(root->left);
@@ -89,4 +108,25 @@ void Tree::printLeftView(Node *root){
     for(auto x: leftView) std::cout <<x <<" ";
     std::cout <<"\n";
 }
+
+bool Tree::isChildSumEqualsParent(Node *parent){
+    if(parent == nullptr) return true;
+    if(parent -> left == nullptr && parent -> right == nullptr) return true;
+
+    int sum = 0;
+    if(parent -> left != nullptr) sum += parent->left->data;
+    if(parent -> right != nullptr) sum+= parent->right->data;
+
+    return(parent->data == sum && isChildSumEqualsParent(parent->left) && isChildSumEqualsParent(parent->right));
+}
+
+bool Tree::isBalancedTree(Node *root){
+    if(root == nullptr) return true;
+    
+    int lh = getHeight(root->left);
+    int rh = getHeight(root -> right);
+
+    return (abs(lh - rh) <= 1 && isBalancedTree(root -> left) && isBalancedTree(root -> right));
+}
+
 
