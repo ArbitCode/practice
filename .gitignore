@@ -1,2 +1,4 @@
-../.vscode/
+.vscode/
 *.o
+.vscode/targets.log
+.vscode/targets.log
