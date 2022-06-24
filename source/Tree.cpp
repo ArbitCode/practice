@@ -22,6 +22,24 @@ void Tree::inOrder(Node *root){
     inOrder(root -> right);
 }
 
+void Tree::interativeInorder(Node *root){
+    if(root == nullptr) return;
+    std::stack<Node *> stk;
+    while(true){
+        if(root != nullptr){
+            stk.push(root);
+            root = root -> left;
+        } 
+        else{
+            if(stk.empty()) break;
+            root = stk.top();
+            stk.pop();
+            std::cout << root -> data <<" ";
+            root = root -> right;
+        }
+   }
+}
+
 void Tree::preOrder(Node *root){
     if(root == nullptr) return;
     std::cout << root -> data <<" ";
@@ -174,7 +192,7 @@ int Tree::getDiameterTree(Node *root){
 
     int leftSubtreeDiameter = getDiameterTree(root -> left);
     int rightSubtreeDiameter = getDiameterTree(root -> right);
-    int diameter = getHight(root -> left) + getHight(root -> right);
+    int diameter = getHight(root -> left) + getHight(root -> right) + 1;
     return std::max(diameter, std::max(leftSubtreeDiameter, rightSubtreeDiameter));
 }
 
@@ -183,6 +201,6 @@ int Tree::getDiameterTree(Node *root, int &diameter){
 
     int lh = getDiameterTree(root->left, diameter);
     int rh = getDiameterTree(root -> right, diameter);
-    diameter = std::max(diameter, lh+rh);
+    diameter = std::max(diameter, lh+rh+1);
     return std::max(lh, rh) + 1;
 }

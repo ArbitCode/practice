@@ -6,6 +6,7 @@ class Tree{
     public:
     Node *buildTree();
     void inOrder(Node *root);
+    void interativeInorder(Node *root);
     void preOrder(Node *root);
     void postOrder(Node *root);
     void levelOrder(Node *root);
