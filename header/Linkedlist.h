@@ -12,6 +12,16 @@ public:
     Node *deleteLast(Node *head);
     int searchVal(Node *head, int val);
     int searchValRecursive(Node *head, int val);
+
+    //doubly linkedlist
+    void printDLS(Node *head);
+    Node *insertBeginDLS(Node *head, int val);
+    Node *insertEndDLS(Node *head, int val);
+    Node *deleteHeadDLS(Node *head);
+    Node *deleteEndDLS(Node *head);
+
+    //circular linkedlist
+
 };
 
 
