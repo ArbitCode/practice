@@ -1,10 +1,10 @@
-# pratice
+# practice
 
 ## How to compile and run
-1. Clone this repository
-2. Go to `makefile` folder
-3. Run command ``make``
-4. Run ``./output``
-5. to clean build Run ``make clean``
+1. Clone Repository.
+2. Go to `makefile` directory.
+3. Run command ``make`` to build binary.
+4. Run ``./output`` to execute main function.
+5. Run command ``make clean`` to clean binary.
 
 
