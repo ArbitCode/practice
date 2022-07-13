@@ -46,6 +46,11 @@ int main(){
     std::cout << "position: " << LS.searchVal(head, 11) << "\n";
     std::cout << "position: " << LS.searchValRecursive(head, 11) << "\n";
 
+    //doubly linkedlist
+    Node *headDLS = nullptr;
+    headDLS = LS.insertEndDLS(headDLS, 12);
+    LS.printLS(headDLS);
+
     
 
     free(root);

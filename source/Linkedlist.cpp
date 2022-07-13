@@ -36,6 +36,10 @@ Node *Linkedlist::deleteHead(Node *head){
 Node *Linkedlist::deleteLast(Node *head){
     if(head == nullptr) return head;
     Node *curr = head;
+    if(head -> left == nullptr){
+        delete head;
+        return nullptr;
+    }
     while(curr -> left -> left != nullptr) curr = curr -> left;
     delete curr -> left;
     curr -> left = nullptr;
@@ -60,4 +64,48 @@ int Linkedlist::searchValRecursive(Node *head, int val){
     int res = searchValRecursive(head -> left, val);
     if(res == -1) return -1;
     return (res + 1);
+}
+
+Node *Linkedlist::insertBeginDLS(Node *head, int val){
+    Node *temp = new Node(val);
+    if(head == nullptr) return temp;
+    temp -> left = head;
+    head -> right = temp;
+    return temp;
+}
+
+Node *Linkedlist::insertEndDLS(Node *head, int val){
+    Node *temp = new Node(val);
+    if(head == nullptr) return temp;
+    Node *curr = head;
+    while (curr -> left != nullptr) curr = curr ->left;
+    curr -> left = temp;
+    temp -> right = curr;
+    return head;
+}
+
+Node *Linkedlist::deleteHeadDLS(Node *head){
+    if(head == nullptr) return head;
+    if(head -> left == nullptr){
+        delete head;
+        return nullptr;
+    }
+    Node *curr = head;
+    head = head -> left;
+    head -> right = nullptr;
+    delete curr;
+    return head;
+}
+
+Node *Linkedlist::deleteEndDLS(Node *head){
+    if(head == nullptr) return head;
+    Node *curr = head;
+    if(head -> left == nullptr){
+        delete head;
+        return nullptr;
+    }
+    while(curr -> left -> left != nullptr) curr = curr -> left;
+    curr -> right -> left = nullptr;
+    delete curr;
+    return head;
 }
