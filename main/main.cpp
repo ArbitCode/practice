@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 #include "../header/Node.h"
 #include "../header/Tree.h"
+#include "../header/Linkedlist.h"
 
 int main(){
     Tree tree;
@@ -28,8 +29,15 @@ int main(){
     int diameter = 0;
     tree.getDiameterTree(root, diameter);
     std::cout<< "Diameter of Tree: " << diameter << "\n";
-    
 
+    //Linkedlist
+    Linkedlist LS;
+    Node *head = nullptr;
+    Node *node =  new Node(12);
+    Node *node1 = new Node(13);
+    head =  LS.insertNode(head, node);
+    head = LS.insertNode(head, node1);
+    LS.printLS(head);
     
     free(root);
     return 0;
