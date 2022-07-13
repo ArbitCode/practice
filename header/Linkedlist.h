@@ -5,8 +5,13 @@
 class Linkedlist
 {
 public:
-    Node *insertNode(Node *head, Node *node);
     void printLS(Node *head);
+    Node *insertEnd(Node *head, int val);
+    Node *insertBegin(Node *head, int val);
+    Node *deleteHead(Node *head);
+    Node *deleteLast(Node *head);
+    int searchVal(Node *head, int val);
+    int searchValRecursive(Node *head, int val);
 };
 
 

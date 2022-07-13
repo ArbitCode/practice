@@ -33,12 +33,21 @@ int main(){
     //Linkedlist
     Linkedlist LS;
     Node *head = nullptr;
-    Node *node =  new Node(12);
-    Node *node1 = new Node(13);
-    head =  LS.insertNode(head, node);
-    head = LS.insertNode(head, node1);
+    head =  LS.insertEnd(head, 12);
+    head = LS.insertEnd(head, 13);
+    head = LS.insertEnd(head, 14);
+    head = LS.insertBegin(head, 11);
+    head = LS.insertBegin(head, 10);
+    LS.printLS(head);    
+    head = LS.deleteHead(head);
     LS.printLS(head);
+    head = LS.deleteLast(head);
+    LS.printLS(head);
+    std::cout << "position: " << LS.searchVal(head, 11) << "\n";
+    std::cout << "position: " << LS.searchValRecursive(head, 11) << "\n";
+
     
+
     free(root);
     return 0;
 }
